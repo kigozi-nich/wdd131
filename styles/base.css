@@ -126,27 +126,55 @@ hr {
     margin-top: 1rem;
 }
 
-.flag {
+.country-info img {
+    padding-left: 10px;
+}
+
+.flag-container {
+    float: left;
+    margin: 0 15px 10px 10px; 
     width: 100px;
+}
+
+.flag {
+    width: 150px; /* Increased width */
     height: auto;
-    border: 1px solid #ddd;
-    margin-right: 1rem;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 5px;
+    border: 1px solid #ddd; 
 }
 
 .flag-caption {
     font-size: 0.8rem;
     text-align: center;
-    width: 100px;
-    margin-top: 0.5rem;
+    width: 100%;
 }
 
 .country-text {
-    flex: 1;
+    margin-left: 125px; 
+    padding-top: 5px;
 }
+
+.content-wrapper {
+    overflow: hidden; 
+    padding: 10px; 
+    border: 1px solid #eee; 
+} 
 
 ul {
     list-style-type: none;
     padding: 1rem 2rem;
+}
+
+.flag-container {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 1rem;
+}
+.flag-container img{
+    width: 200px;
+    height: auto;
 }
 
 li {
@@ -206,6 +234,5 @@ footer p {
     margin-left: auto;
     align-self: flex-start;
 }
-
 
 }
