@@ -207,23 +207,5 @@ footer p {
     align-self: flex-start;
 }
 
-@media screen and (max-width: 768px) {
-    .profile-img {
-        width: 100%;
-        max-width: 100px;
-        margin: 0 auto 1rem;
-        display: block;
-    }
-}
-    .text-content {
-        padding-right: 0;
-    }
-    
-    nav {
-        flex-wrap: wrap;
-    }
-    
-    nav a {
-        margin: 0.25rem;
-    }
+
 }
