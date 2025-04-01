@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>     
+    <meta charset="UTF-8">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <meta name="author" content="Nicholas Kigozi">     
+    <meta name="description" content="Temple Album showcasing beautiful temples from around the world">     
+    <title>Temple Album | WDD 131</title>     
+    <link rel="stylesheet" href="styles/filtered-temples.css">     
+    <link rel="stylesheet" href="styles/filtered-temples-large.css" media="(min-width: 640px)">     
+    <link rel="preconnect" href="https://fonts.googleapis.com">     
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>     
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
+     <link rel="stylesheet" href="styles/filtered-temples.css"> 
+        <link rel="stylesheet" href="styles/filtered-temples-large.css" media="(min-width: 640px)">  
+    <script src="scripts/filtered-temples.js" defer></script> 
+</head> 
+<body>     
+    <header>         
+        <div class="header-content">             
+            <h1>Temple Album</h1>             
+            <div class="hamburger-menu">                 
+                <button id="hamburger" aria-label="Toggle menu">☰</button>             
+            </div>         
+        </div>         
+        <nav id="primary-nav">             
+            <ul>                 
+                <li><a href="#" id="home-filter">Home</a></li>                 
+                <li><a href="#" id="old-filter">Old</a></li>                 
+                <li><a href="#" id="new-filter">New</a></li>                 
+                <li><a href="#" id="large-filter">Large</a></li>                 
+                <li><a href="#" id="small-filter">Small</a></li>             
+            </ul>         
+        </nav>     
+    </header>          
+    <main>         
+        <h2>Temples Around the World</h2>         
+        <div class="grid-container" id="templeCards">
+            <!-- Temple cards will be dynamically loaded here -->
+        </div>     
+    </main>          
+    <footer>         
+        <p>&copy; <span id="currentYear"></span> | Nicholas Kigozi | BYU-Idaho</p>         
+        <p>Contact: <a href="mailto:info@templealbum.org">info@templealbum.org</a></p>         
+        <p id="lastModified"></p>     
+    </footer> 
+</body> 
+</html>

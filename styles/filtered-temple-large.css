@@ -1,0 +1,53 @@
+/* For larger screens */
+@media (min-width: 640px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    #primary-nav {
+        display: block; /* Always show navigation on larger screens */
+    }
+    
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    nav ul li {
+        margin: 0;
+    }
+    
+    nav ul li a {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        margin: 0 0.5rem;
+    }
+    
+    nav ul li a:hover {
+        transform: none;
+        background-color: #4a7196;
+    }
+    
+    .hamburger-menu {
+        display: none; /* Hide hamburger on larger screens */
+    }
+    
+    /* Grid layout for larger screens */
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Add a nice hover effect for desktop */
+    .temple-card:hover .temple-name {
+        color: #3a6186;
+    }
+}
+
+/* Medium screens - 2 columns */
+@media (min-width: 640px) and (max-width: 960px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
