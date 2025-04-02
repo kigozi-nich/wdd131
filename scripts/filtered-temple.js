@@ -63,7 +63,7 @@ const temples = [
         dedicated: "1893, April, 6",
         area: 253015,
         imageUrl:
-        "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/400x250/slc-temple-lds-1257233-wallpaper.jpg"
+        "https://churchofjesuschristtemples.org/assets/img/temples/salt-lake-temple/salt-lake-temple-4948.jpg"
     },
     {
         templeName: "Nairobi Kenya",
@@ -71,7 +71,7 @@ const temples = [
         dedicated: "2023, June, 18",
         area: 8500,
         imageUrl:
-        "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/nairobi-kenya/400x250/2023-02-14-nairobi-kenya-temple-1358331-wallpaper.jpg"
+        "https://churchofjesuschristtemples.org/assets/img/temples/nairobi-kenya-temple/nairobi-kenya-temple-58758.jpg"
     },
     {
         templeName: "Taipei Taiwan",
@@ -79,7 +79,7 @@ const temples = [
         dedicated: "1984, November, 17",
         area: 9945,
         imageUrl:
-        "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/taipei-taiwan/400x250/taipei-taiwan-temple-exterior-1075394-wallpaper.jpg"
+        "https://churchofjesuschristtemples.org/assets/img/temples/taipei-taiwan-temple/taipei-taiwan-temple-8299.jpg"
     }
 ];
 

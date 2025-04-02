@@ -135,49 +135,89 @@ h2::after {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly smaller cards */
+    gap: 2rem; /* Adjusted gap for better spacing */
+    padding: 2rem;
+    justify-items: center;
 }
 
 .temple-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 0.5rem;
-    background-color: white;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border: none; /* Removed border for a cleaner look */
+    border-radius: 18px; /* Slightly smaller border radius */
+    padding: 0;
+    background: linear-gradient(to bottom, #ffffff, #f9f7f2); /* Subtle gradient background */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Softer shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 360px; /* Reduced card width */
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .temple-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(-10px); /* Slightly stronger hover effect */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .temple-card img {
     width: 100%;
-    height: auto;
+    height: 240px; /* Reduced image height */
     display: block;
-    border-radius: 5px;
+    border-bottom: 6px solid #3a6186; /* Slightly thinner separation line */
     object-fit: cover;
-    aspect-ratio: 4/3;
+    transition: transform 0.4s ease; /* Smooth zoom effect */
+}
+
+.temple-card img:hover {
+    transform: scale(1.08); /* Slightly stronger zoom effect on hover */
 }
 
 .temple-info {
-    padding: 1rem;
+    padding: 1.8rem; /* Reduced padding */
+    background: #ffffff; /* Clean white background */
+    width: 100%;
 }
 
 .temple-name {
     font-family: 'Lora', serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 1.6rem; /* Slightly smaller font size for the temple name */
+    font-weight: 700;
+    margin-bottom: 0.8rem;
     color: #2c3e50;
+    text-transform: capitalize; /* Capitalize for a professional look */
 }
 
-.temple-location, .temple-dedicated, .temple-area {
-    font-size: 0.9rem;
-    margin-bottom: 0.3rem;
+temple-location {
+    font-size: 1.2rem; /* Slightly smaller font size for location */
+    font-style: italic;
+    margin-bottom: 0.6rem;
+    color: #555;
+}
+
+.temple-dedicated, .temple-area {
+    font-size: 1.1rem; /* Slightly smaller font size for better readability */
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.temple-dedicated span, .temple-area span {
+    font-weight: 600;
+    color: #3a6186;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Footer styles */
