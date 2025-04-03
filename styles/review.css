@@ -1,0 +1,49 @@
+/* Review Confirmation Page Styles */
+.confirmation {
+    text-align: center;
+    padding: 20px;
+}
+
+.confirmation h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #27ae60;
+    margin-bottom: 15px;
+}
+
+.review-count {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f1f9fe;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.back-link:hover {
+    background-color: #2980b9;
+    text-decoration: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .review-count {
+        padding: 10px;
+        font-size: 16px;
+    }
+}

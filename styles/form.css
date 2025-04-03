@@ -1,0 +1,137 @@
+/* Form Styles */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.required {
+    color: #e74c3c;
+    margin-left: 3px;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Star Rating Styles */
+.star-rating {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.rating-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.rating-option input[type="radio"] {
+    display: none;
+}
+
+.rating-option label {
+    font-size: 28px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.rating-option span {
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    margin-top: 4px;
+}
+
+.rating-option input[type="radio"]:checked + label {
+    color: #f39c12;
+}
+
+.rating-option:hover label {
+    color: #f39c12;
+}
+
+/* Checkbox Styles */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.checkbox-group div {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 200px;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .star-rating {
+        gap: 10px;
+    }
+    
+    .rating-option label {
+        font-size: 24px;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}
