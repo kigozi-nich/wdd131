@@ -25,7 +25,7 @@
         <form method="get" action="review.html">
             <div class="form-group">
                 <label for="product">Product Name <span class="required">*</span></label>
-                <select id="product" name="product" required>
+                <select id="product" name="product" required aria-labelledby="product">
                     <option value="" disabled selected>Select a Product...</option>
                     <!-- Products will be populated via JavaScript -->
                 </select>
@@ -33,30 +33,30 @@
             
             <div class="form-group">
                 <label>Overall Rating <span class="required">*</span></label>
-                <div class="star-rating">
-                    <div class="rating-option">
-                        <input type="radio" id="star1" name="rating" value="1" required>
-                        <label for="star1">★</label>
+                <div class="star-rating" role="radiogroup" aria-labelledby="ratingGroup">
+                    <div class="rating-option" role="radio" aria-checked="false">
+                        <input type="radio" id="star1" name="rating" value="1" required aria-labelledby="star1Label">
+                        <label for="star1" id="star1Label">★</label>
                         <span>Poor</span>
                     </div>
-                    <div class="rating-option">
-                        <input type="radio" id="star2" name="rating" value="2">
-                        <label for="star2">★</label>
+                    <div class="rating-option" role="radio" aria-checked="false">
+                        <input type="radio" id="star2" name="rating" value="2" aria-labelledby="star2Label">
+                        <label for="star2" id="star2Label">★</label>
                         <span>Fair</span>
                     </div>
-                    <div class="rating-option">
-                        <input type="radio" id="star3" name="rating" value="3">
-                        <label for="star3">★</label>
+                    <div class="rating-option" role="radio" aria-checked="false">
+                        <input type="radio" id="star3" name="rating" value="3" aria-labelledby="star3Label">
+                        <label for="star3" id="star3Label">★</label>
                         <span>Good</span>
                     </div>
-                    <div class="rating-option">
-                        <input type="radio" id="star4" name="rating" value="4">
-                        <label for="star4">★</label>
+                    <div class="rating-option" role="radio" aria-checked="false">
+                        <input type="radio" id="star4" name="rating" value="4" aria-labelledby="star4Label">
+                        <label for="star4" id="star4Label">★</label>
                         <span>Very Good</span>
                     </div>
-                    <div class="rating-option">
-                        <input type="radio" id="star5" name="rating" value="5">
-                        <label for="star5">★</label>
+                    <div class="rating-option" role="radio" aria-checked="false">
+                        <input type="radio" id="star5" name="rating" value="5" aria-labelledby="star5Label">
+                        <label for="star5" id="star5Label">★</label>
                         <span>Excellent</span>
                     </div>
                 </div>
@@ -69,38 +69,40 @@
             
             <div class="form-group">
                 <label>Useful Features</label>
-                <div class="checkbox-group">
+                <div class="checkbox-group" role="group" aria-labelledby="featureGroup">
                     <div>
-                        <input type="checkbox" id="feature1" name="features" value="Easy to Use">
-                        <label for="feature1">Easy to Use</label>
+                        <input type="checkbox" id="feature1" name="features" value="Easy to Use" role="checkbox" aria-labelledby="feature1Label">
+                        <label for="feature1" id="feature1Label">Easy to Use</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="feature2" name="features" value="Durable">
-                        <label for="feature2">Durable</label>
+                        <input type="checkbox" id="feature2" name="features" value="Durable" role="checkbox" aria-labelledby="feature2Label">
+                        <label for="feature2" id="feature2Label">Durable</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="feature3" name="features" value="Good Value">
-                        <label for="feature3">Good Value</label>
+                        <input type="checkbox" id="feature3" name="features" value="Good Value" role="checkbox" aria-labelledby="feature3Label">
+                        <label for="feature3" id="feature3Label">Good Value</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="feature4" name="features" value="Attractive Design">
-                        <label for="feature4">Attractive Design</label>
+                        <input type="checkbox" id="feature4" name="features" value="Attractive Design" role="checkbox" aria-labelledby="feature4Label">
+                        <label for="feature4" id="feature4Label">Attractive Design</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="feature5" name="features" value="Energy Efficient">
-                        <label for="feature5">Energy Efficient</label>
+                        <input type="checkbox" id="feature5" name="features" value="Energy Efficient" role="checkbox" aria-labelledby="feature5Label">
+                        <label for="feature5" id="feature5Label">Energy Efficient</label>
                     </div>
                 </div>
             </div>
-            
+
+            <!-- Written Review Section with ARIA attributes -->
             <div class="form-group">
                 <label for="review">Written Review</label>
-                <textarea id="review" name="review" rows="5" placeholder="Tell us about your experience with this product..."></textarea>
+                <textarea id="review" name="review" rows="5" placeholder="Tell us about your experience with this product..." aria-describedby="reviewDesc"></textarea>
+                <span id="reviewDesc" class="sr-only">Provide detailed feedback about the product you reviewed.</span>
             </div>
             
             <div class="form-group">
                 <label for="userName">Your Name</label>
-                <input type="text" id="userName" name="userName">
+                <input type="text" id="userName" name="userName" aria-label="Your Name">
             </div>
             
             <div class="form-group">
