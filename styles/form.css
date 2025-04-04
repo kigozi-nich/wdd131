@@ -8,11 +8,11 @@ label {
     margin-bottom: 8px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    color: #1a2733; /* Darkened from #2c3e50 for better contrast */
+    color: #000000; /* Changed to black for maximum contrast */
 }
 
 .required {
-    color: #c0392b; /* Darkened from #e74c3c for better contrast */
+    color: #9e0000; /* Much darker red for better contrast */
     margin-left: 3px;
 }
 
@@ -22,7 +22,7 @@ select,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #555; /* Darkened from #777 for better contrast */
+    border: 1px solid #444; /* Darker border */
     border-radius: 4px;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
@@ -33,7 +33,7 @@ input[type="text"]:focus,
 input[type="date"]:focus,
 select:focus,
 textarea:focus {
-    border-color: #1a5b8e; /* Darkened from #2a7bbd for better contrast */
+    border-color: #004080; /* Much darker blue for focus state */
     outline: none;
 }
 
@@ -57,24 +57,25 @@ textarea:focus {
 
 .rating-option label {
     font-size: 28px;
-    color: #666; /* Darkened from #888 for better contrast */
+    color: #444444; /* Much darker gray for better contrast */
     cursor: pointer;
     transition: color 0.2s;
 }
 
 .rating-option span {
-    font-size: 12px;
+    font-size: 14px; /* Increased from 12px for better readability */
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     margin-top: 4px;
+    color: #000000; /* Ensure all text has good contrast */
 }
 
 .rating-option input[type="radio"]:checked + label {
-    color: #b85f19; /* Darkened from #e67e22 for better contrast */
+    color: #7d4100; /* Much darker orange for selected state */
 }
 
 .rating-option:hover label {
-    color: #a34400; /* Darkened from #d35400 for better contrast */
+    color: #7d2800; /* Much darker orange-red for hover state */
 }
 
 /* Checkbox Styles */
@@ -97,11 +98,12 @@ textarea:focus {
     margin-bottom: 0;
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
+    color: #000000; /* Ensure all text has good contrast */
 }
 
 /* Submit Button */
 .submit-btn {
-    background-color: #2472b4; /* Darkened from #3498db for better contrast */
+    background-color: #005095; /* Much darker blue for button */
     color: white;
     border: none;
     padding: 12px 25px;
@@ -118,7 +120,25 @@ textarea:focus {
 }
 
 .submit-btn:hover {
-    background-color: #1c638f; /* Darkened from #2980b9 for better contrast */
+    background-color: #003060; /* Even darker blue for hover state */
+}
+
+/* Fix for light-colored button (assuming this might be a secondary button) */
+.secondary-btn {
+    background-color: #f0f0f0; /* Light gray background */
+    color: #000000; /* Black text for maximum contrast */
+    border: 1px solid #666666; /* Darker border instead of #dddddd */
+    padding: 12px 25px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.secondary-btn:hover {
+    background-color: #e0e0e0;
 }
 
 /* Mobile Responsiveness */
