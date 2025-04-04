@@ -57,7 +57,7 @@ textarea:focus {
 
 .rating-option label {
     font-size: 28px;
-    color: #ddd;
+    color: #888; /* Darker gray for better contrast */
     cursor: pointer;
     transition: color 0.2s;
 }
@@ -70,11 +70,11 @@ textarea:focus {
 }
 
 .rating-option input[type="radio"]:checked + label {
-    color: #f39c12;
+    color: #e67e22; /* Ensure the selected star color is accessible */
 }
 
 .rating-option:hover label {
-    color: #f39c12;
+    color: #d35400; /* Accessible hover color */
 }
 
 /* Checkbox Styles */
