@@ -8,11 +8,11 @@ label {
     margin-bottom: 8px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    color: #2c3e50;
+    color: #1a2733; /* Darkened from #2c3e50 for better contrast */
 }
 
 .required {
-    color: #e74c3c;
+    color: #c0392b; /* Darkened from #e74c3c for better contrast */
     margin-left: 3px;
 }
 
@@ -22,7 +22,7 @@ select,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #777; /* Darker border for better contrast */
+    border: 1px solid #555; /* Darkened from #777 for better contrast */
     border-radius: 4px;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
@@ -33,7 +33,7 @@ input[type="text"]:focus,
 input[type="date"]:focus,
 select:focus,
 textarea:focus {
-    border-color: #2a7bbd; /* Accessible focus color */
+    border-color: #1a5b8e; /* Darkened from #2a7bbd for better contrast */
     outline: none;
 }
 
@@ -57,7 +57,7 @@ textarea:focus {
 
 .rating-option label {
     font-size: 28px;
-    color: #888; /* Darker gray for better contrast */
+    color: #666; /* Darkened from #888 for better contrast */
     cursor: pointer;
     transition: color 0.2s;
 }
@@ -70,11 +70,11 @@ textarea:focus {
 }
 
 .rating-option input[type="radio"]:checked + label {
-    color: #e67e22; /* Ensure the selected star color is accessible */
+    color: #b85f19; /* Darkened from #e67e22 for better contrast */
 }
 
 .rating-option:hover label {
-    color: #d35400; /* Accessible hover color */
+    color: #a34400; /* Darkened from #d35400 for better contrast */
 }
 
 /* Checkbox Styles */
@@ -101,7 +101,7 @@ textarea:focus {
 
 /* Submit Button */
 .submit-btn {
-    background-color: #3498db;
+    background-color: #2472b4; /* Darkened from #3498db for better contrast */
     color: white;
     border: none;
     padding: 12px 25px;
@@ -118,7 +118,7 @@ textarea:focus {
 }
 
 .submit-btn:hover {
-    background-color: #2980b9;
+    background-color: #1c638f; /* Darkened from #2980b9 for better contrast */
 }
 
 /* Mobile Responsiveness */
