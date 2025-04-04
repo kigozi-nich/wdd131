@@ -7,13 +7,14 @@ label {
     display: block;
     margin-bottom: 8px;
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    color: #000000; /* Maximum contrast */
+    font-weight: 600; /* Increased weight for better visibility */
+    color: #000000; /* Pure black for maximum contrast */
 }
 
 .required {
-    color: #800000; /* Extremely dark red for AAA compliance */
+    color: #750000; /* Extremely dark red for AAA compliance */
     margin-left: 3px;
+    font-weight: bold;
 }
 
 input[type="text"],
@@ -22,7 +23,7 @@ select,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #333333; /* Even darker border */
+    border: 1px solid #222222; /* Almost black border */
     border-radius: 4px;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
@@ -33,9 +34,9 @@ input[type="text"]:focus,
 input[type="date"]:focus,
 select:focus,
 textarea:focus {
-    border-color: #003366; /* Very dark blue for focus state */
+    border-color: #002244; /* Extremely dark blue for focus state */
     outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.5); /* Additional focus indicator */
+    box-shadow: 0 0 0 2px rgba(0, 34, 68, 0.6); /* Enhanced focus indicator */
 }
 
 /* Star Rating Styles */
@@ -57,26 +58,28 @@ textarea:focus {
 }
 
 .rating-option label {
-    font-size: 28px;
-    color: #333333; /* Very dark gray for stars */
+    font-size: 30px; /* Enlarged star size */
+    color: #222222; /* Almost black for stars */
     cursor: pointer;
     transition: color 0.2s;
+    font-weight: normal; /* Reset weight for star icons */
 }
 
 .rating-option span {
-    font-size: 16px; /* Further increased from 14px for better readability */
+    font-size: 18px; /* Much larger text */
     font-family: 'Roboto', sans-serif;
-    font-weight: 500; /* Made medium weight for better visibility */
-    margin-top: 4px;
-    color: #000000; /* Black for maximum contrast */
+    font-weight: bold; /* Bold for maximum visibility */
+    margin-top: 6px;
+    color: #000000; /* Pure black */
 }
 
 .rating-option input[type="radio"]:checked + label {
-    color: #663300; /* Very dark brown/orange for selected state */
+    color: #552200; /* Extremely dark orange/brown for selected state */
+    text-shadow: 0 0 1px rgba(0,0,0,0.5); /* Added text shadow for emphasis */
 }
 
 .rating-option:hover label {
-    color: #662200; /* Very dark red-brown for hover state */
+    color: #550000; /* Extremely dark red for hover state */
 }
 
 /* Checkbox Styles */
@@ -98,19 +101,23 @@ textarea:focus {
 .checkbox-group label {
     margin-bottom: 0;
     font-family: 'Open Sans', sans-serif;
-    font-weight: normal;
-    color: #000000;
+    font-weight: 600; /* Increased weight */
+    color: #000000; /* Pure black */
 }
 
-/* Submit Button */
-.submit-btn {
-    background-color: #003366; /* Very dark blue for button */
-    color: white;
+/* Button Styles - Highly Customized for AAA Compliance */
+
+/* Primary blue button */
+.btn-primary,
+.submit-btn,
+.btn-blue {
+    background-color: #00264d; /* Extremely dark blue, nearly navy */
+    color: #ffffff;
     border: none;
     padding: 12px 25px;
-    font-size: 18px; /* Increased font size */
+    font-size: 20px; /* Very large text */
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700; /* Bold for better visibility */
+    font-weight: 700; /* Bold */
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -118,43 +125,55 @@ textarea:focus {
     margin: 0 auto;
     width: 100%;
     max-width: 200px;
+    text-shadow: 0 0 1px rgba(0,0,0,0.7); /* Text shadow for better definition */
 }
 
-.submit-btn:hover {
-    background-color: #002244; /* Even darker blue for hover state */
+.btn-primary:hover,
+.submit-btn:hover,
+.btn-blue:hover {
+    background-color: #001a33; /* Even darker blue */
 }
 
-/* Secondary/Light button */
+/* Light/secondary button */
+.btn-secondary,
 .btn-light {
-    background-color: #f8f8f8;
-    color: #000000; /* Black text on light background */
-    border: 1px solid #333333; /* Dark border */
+    background-color: #f0f0f0;
+    color: #000000; /* Pure black text */
+    border: 1px solid #222222; /* Almost black border */
     padding: 12px 25px;
-    font-size: 18px;
+    font-size: 20px; /* Very large text */
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-weight: 700; /* Bold */
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
+.btn-secondary:hover,
 .btn-light:hover {
     background-color: #e0e0e0;
+    border-color: #000000; /* Pure black border on hover */
 }
 
-/* Specific button for the blue button in the image */
-.btn-blue {
-    background-color: #003366; /* Very dark blue */
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 18px;
+/* Red/danger button */
+.btn-danger,
+.btn-red {
+    background-color: #f0f0f0;
+    color: #750000; /* Extremely dark red text */
+    border: 1px solid #222222;
+    padding: 12px 25px;
+    font-size: 20px; /* Very large text */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* Bold */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* White text on green button (if needed) */
-.btn-green {
-    background-color: #005000; /* Very dark green */
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 18px;
+.btn-danger:hover,
+.btn-red:hover {
+    background-color: #e0e0e0;
+    color: #5c0000; /* Even darker red on hover */
 }
 
 /* Mobile Responsiveness */
@@ -164,7 +183,7 @@ textarea:focus {
     }
     
     .rating-option label {
-        font-size: 24px;
+        font-size: 28px;
     }
     
     .checkbox-group {
