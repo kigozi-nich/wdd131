@@ -1,4 +1,93 @@
-/* Form Styles */
+/* Basic Button Reset */
+button, 
+.btn,
+input[type="button"],
+input[type="submit"] {
+    font-size: 24px; /* Extremely large text */
+    font-weight: 900; /* Extra bold */
+    padding: 12px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Arial Black', 'Montserrat', sans-serif;
+    letter-spacing: 0.5px; /* Increased letter spacing for readability */
+}
+
+/* Direct Targeting for Button Types */
+
+/* White/Light Button with Black Text (first and fourth buttons) */
+.btn-light,
+.white-button,
+button.light {
+    background-color: #ffffff; /* Pure white */
+    color: #000000; /* Pure black */
+    border: 2px solid #000000; /* Black border */
+    text-shadow: none;
+}
+
+.btn-light:hover,
+.white-button:hover,
+button.light:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 0 0 1px #000000;
+}
+
+/* Red Text Button (second button) */
+.btn-red-text,
+.red-button,
+button.red {
+    background-color: #ffffff; /* Pure white */
+    color: #880000; /* Very dark red - equivalent to HTML "darkred" */
+    border: 2px solid #880000; /* Matching border */
+    text-shadow: none;
+}
+
+.btn-red-text:hover,
+.red-button:hover,
+button.red:hover {
+    background-color: #fff0f0; /* Very slight red tint */
+    box-shadow: 0 0 0 1px #880000;
+}
+
+/* Blue Button with White Text (third button) */
+.btn-blue,
+.blue-button,
+button.blue,
+.submit-btn,
+.primary-btn {
+    background-color: #000080; /* Navy blue - extremely dark */
+    color: #ffffff; /* Pure white */
+    border: none;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.7);
+}
+
+.btn-blue:hover,
+.blue-button:hover,
+button.blue:hover,
+.submit-btn:hover,
+.primary-btn:hover {
+    background-color: #000066; /* Even darker blue */
+    box-shadow: 0 0 0 1px #ffffff inset;
+}
+
+/* Green Text Button (fourth button) */
+.btn-green-text,
+.green-button,
+button.green {
+    background-color: #ffffff; /* Pure white */
+    color: #006600; /* Very dark green */
+    border: 2px solid #006600; /* Matching border */
+    text-shadow: none;
+}
+
+.btn-green-text:hover,
+.green-button:hover,
+button.green:hover {
+    background-color: #f0fff0; /* Very slight green tint */
+    box-shadow: 0 0 0 1px #006600;
+}
+
+/* Form Elements - Keep from previous versions */
 .form-group {
     margin-bottom: 25px;
 }
@@ -6,15 +95,16 @@
 label {
     display: block;
     margin-bottom: 8px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600; /* Increased weight for better visibility */
-    color: #000000; /* Pure black for maximum contrast */
+    font-family: 'Arial Black', 'Poppins', sans-serif;
+    font-weight: 900; /* Extremely bold */
+    font-size: 18px;
+    color: #000000; /* Pure black */
 }
 
 .required {
-    color: #750000; /* Extremely dark red for AAA compliance */
+    color: #880000; /* Very dark red */
+    font-weight: 900;
     margin-left: 3px;
-    font-weight: bold;
 }
 
 input[type="text"],
@@ -23,170 +113,48 @@ select,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #222222; /* Almost black border */
+    border: 2px solid #000000; /* Black border */
     border-radius: 4px;
-    font-size: 16px;
-    font-family: 'Open Sans', sans-serif;
-    transition: border-color 0.3s;
+    font-size: 18px;
+    font-family: 'Arial', 'Open Sans', sans-serif;
+    font-weight: bold;
 }
 
-input[type="text"]:focus,
-input[type="date"]:focus,
-select:focus,
-textarea:focus {
-    border-color: #002244; /* Extremely dark blue for focus state */
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 34, 68, 0.6); /* Enhanced focus indicator */
+/* Make sure ANY text on the page has proper contrast */
+body,
+p,
+span,
+div,
+li,
+ul,
+ol,
+a,
+h1, h2, h3, h4, h5, h6 {
+    color: #000000; /* Default all text to black */
 }
 
-/* Star Rating Styles */
-.star-rating {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+/* Overriding any potential framework or existing styles */
+.text-muted,
+.text-secondary,
+.text-light,
+.text-info,
+.text-success,
+.text-warning {
+    color: #000000 !important; /* Force black */
 }
 
-.rating-option {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+.text-danger,
+.text-error {
+    color: #880000 !important; /* Force dark red */
 }
 
-.rating-option input[type="radio"] {
-    display: none;
+.text-primary,
+.text-info {
+    color: #000080 !important; /* Force navy */
 }
 
-.rating-option label {
-    font-size: 30px; /* Enlarged star size */
-    color: #222222; /* Almost black for stars */
-    cursor: pointer;
-    transition: color 0.2s;
-    font-weight: normal; /* Reset weight for star icons */
-}
-
-.rating-option span {
-    font-size: 18px; /* Much larger text */
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold; /* Bold for maximum visibility */
-    margin-top: 6px;
-    color: #000000; /* Pure black */
-}
-
-.rating-option input[type="radio"]:checked + label {
-    color: #552200; /* Extremely dark orange/brown for selected state */
-    text-shadow: 0 0 1px rgba(0,0,0,0.5); /* Added text shadow for emphasis */
-}
-
-.rating-option:hover label {
-    color: #550000; /* Extremely dark red for hover state */
-}
-
-/* Checkbox Styles */
-.checkbox-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-}
-
-.checkbox-group div {
-    display: flex;
-    align-items: center;
-}
-
-.checkbox-group input[type="checkbox"] {
-    margin-right: 8px;
-}
-
-.checkbox-group label {
-    margin-bottom: 0;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600; /* Increased weight */
-    color: #000000; /* Pure black */
-}
-
-/* Button Styles - Highly Customized for AAA Compliance */
-
-/* Primary blue button */
-.btn-primary,
-.submit-btn,
-.btn-blue {
-    background-color: #00264d; /* Extremely dark blue, nearly navy */
-    color: #ffffff;
-    border: none;
-    padding: 12px 25px;
-    font-size: 20px; /* Very large text */
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700; /* Bold */
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 200px;
-    text-shadow: 0 0 1px rgba(0,0,0,0.7); /* Text shadow for better definition */
-}
-
-.btn-primary:hover,
-.submit-btn:hover,
-.btn-blue:hover {
-    background-color: #001a33; /* Even darker blue */
-}
-
-/* Light/secondary button */
-.btn-secondary,
-.btn-light {
-    background-color: #f0f0f0;
-    color: #000000; /* Pure black text */
-    border: 1px solid #222222; /* Almost black border */
-    padding: 12px 25px;
-    font-size: 20px; /* Very large text */
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700; /* Bold */
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-secondary:hover,
-.btn-light:hover {
-    background-color: #e0e0e0;
-    border-color: #000000; /* Pure black border on hover */
-}
-
-/* Red/danger button */
-.btn-danger,
-.btn-red {
-    background-color: #f0f0f0;
-    color: #750000; /* Extremely dark red text */
-    border: 1px solid #222222;
-    padding: 12px 25px;
-    font-size: 20px; /* Very large text */
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700; /* Bold */
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-danger:hover,
-.btn-red:hover {
-    background-color: #e0e0e0;
-    color: #5c0000; /* Even darker red on hover */
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-    .star-rating {
-        gap: 10px;
-    }
-    
-    .rating-option label {
-        font-size: 28px;
-    }
-    
-    .checkbox-group {
-        grid-template-columns: 1fr;
-    }
+/* Ensure specific elements from the image pass AAA */
+[class*="btn"] {
+    font-size: 24px !important;
+    font-weight: 900 !important;
 }
