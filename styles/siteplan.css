@@ -1,0 +1,61 @@
+/* General Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #2E3A87; /* Navy Blue */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2E3A87; /* Navy Blue */
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #F4D03F; /* Golden Yellow */
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section#color-schema p, section#typography p {
+    margin-bottom: 10px;
+}
+
+section#wireframes {
+    text-align: center;
+}
+
+.wireframe-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px 0;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2E3A87; /* Navy Blue */
+    color: white;
+}
