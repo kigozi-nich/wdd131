@@ -8,11 +8,11 @@ label {
     margin-bottom: 8px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    color: #000000; /* Changed to black for maximum contrast */
+    color: #000000; /* Maximum contrast */
 }
 
 .required {
-    color: #9e0000; /* Much darker red for better contrast */
+    color: #800000; /* Extremely dark red for AAA compliance */
     margin-left: 3px;
 }
 
@@ -22,7 +22,7 @@ select,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #444; /* Darker border */
+    border: 1px solid #333333; /* Even darker border */
     border-radius: 4px;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
@@ -33,8 +33,9 @@ input[type="text"]:focus,
 input[type="date"]:focus,
 select:focus,
 textarea:focus {
-    border-color: #004080; /* Much darker blue for focus state */
+    border-color: #003366; /* Very dark blue for focus state */
     outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.5); /* Additional focus indicator */
 }
 
 /* Star Rating Styles */
@@ -57,25 +58,25 @@ textarea:focus {
 
 .rating-option label {
     font-size: 28px;
-    color: #444444; /* Much darker gray for better contrast */
+    color: #333333; /* Very dark gray for stars */
     cursor: pointer;
     transition: color 0.2s;
 }
 
 .rating-option span {
-    font-size: 14px; /* Increased from 12px for better readability */
+    font-size: 16px; /* Further increased from 14px for better readability */
     font-family: 'Roboto', sans-serif;
-    font-weight: normal;
+    font-weight: 500; /* Made medium weight for better visibility */
     margin-top: 4px;
-    color: #000000; /* Ensure all text has good contrast */
+    color: #000000; /* Black for maximum contrast */
 }
 
 .rating-option input[type="radio"]:checked + label {
-    color: #7d4100; /* Much darker orange for selected state */
+    color: #663300; /* Very dark brown/orange for selected state */
 }
 
 .rating-option:hover label {
-    color: #7d2800; /* Much darker orange-red for hover state */
+    color: #662200; /* Very dark red-brown for hover state */
 }
 
 /* Checkbox Styles */
@@ -98,18 +99,18 @@ textarea:focus {
     margin-bottom: 0;
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
-    color: #000000; /* Ensure all text has good contrast */
+    color: #000000;
 }
 
 /* Submit Button */
 .submit-btn {
-    background-color: #005095; /* Much darker blue for button */
+    background-color: #003366; /* Very dark blue for button */
     color: white;
     border: none;
     padding: 12px 25px;
-    font-size: 16px;
+    font-size: 18px; /* Increased font size */
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-weight: 700; /* Bold for better visibility */
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -120,25 +121,40 @@ textarea:focus {
 }
 
 .submit-btn:hover {
-    background-color: #003060; /* Even darker blue for hover state */
+    background-color: #002244; /* Even darker blue for hover state */
 }
 
-/* Fix for light-colored button (assuming this might be a secondary button) */
-.secondary-btn {
-    background-color: #f0f0f0; /* Light gray background */
-    color: #000000; /* Black text for maximum contrast */
-    border: 1px solid #666666; /* Darker border instead of #dddddd */
+/* Secondary/Light button */
+.btn-light {
+    background-color: #f8f8f8;
+    color: #000000; /* Black text on light background */
+    border: 1px solid #333333; /* Dark border */
     padding: 12px 25px;
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.secondary-btn:hover {
+.btn-light:hover {
     background-color: #e0e0e0;
+}
+
+/* Specific button for the blue button in the image */
+.btn-blue {
+    background-color: #003366; /* Very dark blue */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* White text on green button (if needed) */
+.btn-green {
+    background-color: #005000; /* Very dark green */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 /* Mobile Responsiveness */
