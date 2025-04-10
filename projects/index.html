@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience luxury accommodation at Naran Suites and Hotel International Limited. Book your stay today.">
+    <meta name="author" content="Nicholaskigozi">
+    <link rel="stylesheet" href="styles/naransuite.css">
+    <script src="scripts/Naransuite.js"></script>
+    <script src="scripts/rooms.js"></script>
+    <title>Naran Suites - Luxury Accommodation</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Naran Suites Logo">
+        </div>
+        <h1>Naran Suites and Hotel International Limited</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Welcome to Luxury Redefined</h2>
+                <p>Experience excellence in hospitality at Naran Suites.</p>
+                <button id="bookNowBtn" class="cta-button">Book Now</button>
+            </div>
+            <img src="Images/Hotel_exterior.jpg" alt="Hotel Exterior" class="hero-image">
+        </section>
+
+        <section id="features">
+            <h2>Why Choose Naran Suites?</h2>
+            <div class="features-container">
+                <article class="feature-card">
+                    <img src="Images/Luxury_accomodations.jpg" alt="Luxury Accommodations" loading="lazy">
+                    <h3>Luxury Accommodations</h3>
+                    <p>Our rooms are designed for ultimate comfort and luxury.</p>
+                </article>
+                <article class="feature-card">
+                    <img src="Images/Fire_dinning.jpg" alt="Fine Dining" loading="lazy">
+                    <h3>Fine Dining</h3>
+                    <p>Exquisite cuisine prepared by world-class chefs.</p>
+                </article>
+                <article class="feature-card">
+                    <img src="Images/Premium_spa.jpg" alt="Premium Spa" loading="lazy">
+                    <h3>Premium Spa</h3>
+                    <p>Relax and rejuvenate with our premium spa services.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>Guest Testimonials</h2>
+            <div class="testimonial-container" id="testimonialContainer">
+                <!-- Testimonials will be loaded with JavaScript -->
+            </div>
+            <div class="testimonial-controls">
+                <button id="prevTestimonial">Previous</button>
+                <button id="nextTestimonial">Next</button>
+            </div>
+        </section>
+
+        <section id="links">
+            <h2>Useful Links</h2>
+            <div class="links-container">
+                <a href="https://www.tripadvisor.com" class="external-link" target="_blank">TripAdvisor</a>
+                <a href="https://www.booking.com" class="external-link" target="_blank">Booking.com</a>
+                <a href="https://www.expedia.com" class="external-link" target="_blank">Expedia</a>
+                <a href="https://www.hotels.com" class="external-link" target="_blank">Hotels.com</a>
+            </div>
+        </section>
+
+        <section id="newsletter">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for exclusive offers and updates.</p>
+            <form id="newsletterForm" class="newsletter-form">
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-checkbox">
+                    <input type="checkbox" id="offers" name="offers" checked>
+                    <label for="offers">Receive special offers</label>
+                </div>
+                <button type="submit" class="submit-btn">Subscribe</button>
+            </form>
+            <div id="subscriptionMessage"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
