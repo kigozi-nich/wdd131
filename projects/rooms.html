@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore the luxurious rooms and suites at Naran Suites and Hotel International Limited.">
     <meta name="author" content="Nicholaskigozi">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/naransuite.css">
-    <script src="scripts/Naransuite.js"></script>
-    <script src="scripts/rooms.js"></script>
+    <script src="scripts/naransuite.js" defer></script>
+    <script src="scripts/rooms.js" defer></script>
+    <script src="scripts/animations.js" defer></script>
     <title>Rooms & Suites - Naran Suites</title>
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <img src="images/logo.png" alt="Naran Suites Logo">
+            <img src="images/naran_suites logo.png" alt="Naran Suites Logo">
         </div>
         <h1>Naran Suites and Hotel International Limited</h1>
         <nav>
@@ -65,7 +69,20 @@
 
         <section id="rooms-list">
             <div class="container" id="roomsContainer">
-                <!-- Rooms will be loaded with JavaScript -->
+                <div class="room-card">
+                    <img src="images/execuite.jpg" alt="Executive Suite" class="room-image">
+                    <div class="room-details">
+                        <h3>Executive Suite</h3>
+                        <p class="room-price">$550 per night</p>
+                        <p>Luxurious suite with separate living room and premium amenities.</p>
+                        <h4>Features:</h4>
+                        <ul>
+                            <li>King-size bed</li>
+                            <li>Separate living area</li>
+                            <li>Private balcony</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -125,52 +142,6 @@
         <section id="links">
             <h2>Related Information</h2>
             <div class="links-container">
-                <a href="https://www.travelguide.com" class="external-link" target="_blank">Travel Guide</a>
-                <a href="https://www.localattractions.com" class="external-link" target="_blank">Local Attractions</a>
-                <a href="https://www.airporttransfer.com" class="external-link" target="_blank">Airport Transfers</a>
-                <a href="https://www.citytours.com" class="external-link" target="_blank">City Tours</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>123 Luxury Avenue</p>
-                <p>Metropolis, MT 12345</p>
-                <p>Phone: (123) 456-7890</p>
-                <p>Email: info@naransuites.com</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#" class="social-icon">
-                        <img src="images/facebook.jpg" alt="Facebook" width="32" height="32">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="images/instagram.jpg" alt="Instagram" width="32" height="32">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="images/twitter.png" alt="Twitter" width="32" height="32">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 Naran Suites. All rights reserved.</p>
-            <p id="lastVisit"></p>
-        </div>
-    </footer>
-    
-    
-</body>
-</html>
+                <a href="https://www.travelguide.com" class="external-link" target="_blank" rel="noopener noreferrer">Travel Guide</a>
+                <a href="https://www.localattractions.com" class="external-link" target="_blank" rel="noopener noreferrer">Local Attractions</a>
+                <a href="https://www.airporttransfer.com" class="external-link" target="_blank" rel="noopener noreferrer">Airport Transfers</a>

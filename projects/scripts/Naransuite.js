@@ -1,191 +1,655 @@
-// Global Variables
-const testimonials = [
-    {
-        id: 1, 
-        text: "Our stay at Naran Suites exceeded all expectations. The staff was incredibly attentive and the room was spectacular!",
-        author: "Sarah Johnson, New York"
-    },
-    {
-        id: 2,
-        text: "The amenities at Naran Suites are unmatched. From the spa to the restaurants, everything was perfect for our anniversary getaway.",
-        author: "Michael & Lisa Chen, San Francisco"
-    },
-    {
-        id: 3,
-        text: "As a business traveler, I appreciate the efficiency and comfort Naran Suites provides. The high-speed internet and workspace in my room were excellent.",
-        author: "James Wilson, London"
-    },
-    {
-        id: 4,
-        text: "The attention to detail at this hotel is remarkable. Every aspect of our stay was carefully considered and executed flawlessly.",
-        author: "Maria Rodriguez, Madrid"
-    }
-];
+/**
+ * Naran Suites and Hotel International Limited
+ * Main JavaScript file for all pages
+ */
 
-let currentTestimonialIndex = 0;
-
-// DOM Ready Function
-document.addEventListener('DOMContentLoaded', function() {
-    // Track last visit using localStorage
-    trackLastVisit();
+// Define main object to avoid global namespace pollution
+const NaranSuites = {
+    // Store common data
+    data: {
+        testimonials: [
+            {
+                text: "Our stay at Naran Suites was nothing short of exceptional. The staff anticipated our every need and the accommodations were luxurious.",
+                author: "Michael J., New York"
+            },
+            {
+                text: "The attention to detail at Naran Suites is remarkable. From the welcome amenities to the turndown service, everything was perfect.",
+                author: "Sarah T., London"
+            },
+            {
+                text: "I've stayed in many luxury hotels, but Naran Suites truly stands out. The personalized service made our anniversary truly special.",
+                author: "David & Emma R., Sydney"
+            },
+            {
+                text: "The culinary experience at Naran Suites is world-class. The chef's tasting menu was a highlight of our entire vacation.",
+                author: "Priya M., Mumbai"
+            }
+        ],
+        values: [
+            {
+                title: "Excellence",
+                description: "We strive for excellence in every detail of our service and accommodations."
+            },
+            {
+                title: "Personalization",
+                description: "We believe in creating unique experiences tailored to each guest's preferences."
+            },
+            {
+                title: "Cultural Appreciation",
+                description: "We embrace and celebrate local culture in each of our properties around the world."
+            },
+            {
+                title: "Sustainability",
+                description: "We are committed to sustainable practices that protect the environment and support local communities."
+            }
+        ],
+        rooms: [
+            {
+                type: "standard",
+                name: "Standard Room",
+                price: 200,
+                capacity: 2,
+                description: "Comfortable and elegant room with modern amenities.",
+                features: ["King-size bed", "High-speed Wi-Fi", "Smart TV", "Premium toiletries"],
+                image: "images/standard_room.jpg"
+            },
+            {
+                type: "deluxe",
+                name: "Deluxe Room",
+                price: 350,
+                capacity: 2,
+                description: "Spacious room with upgraded amenities and city views.",
+                features: ["King-size bed", "Sitting area", "Premium toiletries", "Minibar", "Workspace"],
+                image: "images/deluxe_room.jpg"
+            },
+            {
+                type: "suite",
+                name: "Executive Suite",
+                price: 550,
+                capacity: 3,
+                description: "Luxurious suite with separate living room and premium amenities.",
+                features: ["King-size bed", "Separate living area", "Private balcony", "Premium toiletries", "Espresso machine"],
+                image: "images/executive_suite.jpg"
+            },
+            {
+                type: "presidential",
+                name: "Presidential Suite",
+                price: 1200,
+                capacity: 4,
+                description: "Our most exclusive accommodation with panoramic views and luxury finishes.",
+                features: ["Master bedroom", "Dining room", "Living room", "Private terrace", "Butler service", "Complimentary minibar"],
+                image: "images/presidential_suite.jpg"
+            }
+        ],
+        faqs: [
+            {
+                question: "What are your check-in and check-out times?",
+                answer: "Check-in time is 3:00 PM and check-out time is 12:00 PM. Early check-in and late check-out may be available upon request, subject to availability."
+            },
+            {
+                question: "Do you offer airport transfers?",
+                answer: "Yes, we offer airport transfer services for our guests. Please contact our concierge at least 24 hours in advance to arrange transportation."
+            },
+            {
+                question: "Is breakfast included in the room rate?",
+                answer: "Breakfast is included with all suites and can be added to standard and deluxe rooms for an additional fee. We offer both buffet and à la carte options."
+            },
+            {
+                question: "Do you have parking facilities?",
+                answer: "Yes, we offer both self-parking and valet parking services. Valet parking is complimentary for suite guests."
+            }
+        ],
+        transportation: [
+            {
+                name: "Hotel Shuttle",
+                description: "Complimentary for all guests, runs every hour to major attractions.",
+                schedule: "7:00 AM - 10:00 PM"
+            },
+            {
+                name: "Taxi Service",
+                description: "Available 24/7, can be arranged by our concierge.",
+                contact: "Dial 0 from your room"
+            },
+            {
+                name: "Luxury Car Rental",
+                description: "Premium vehicles available for daily or weekly rental.",
+                contact: "Concierge desk"
+            }
+        ]
+    },
     
-    // Initialize testimonials if on home page
-    const testimonialContainer = document.getElementById('testimonialContainer');
-    if (testimonialContainer) {
-        displayTestimonials();
-        setupTestimonialControls();
-    }
+    // Element references to be filled on page load
+    elements: {},
     
-    // Set up Book Now button event listener if on home page
-    const bookNowBtn = document.getElementById('bookNowBtn');
-    if (bookNowBtn) {
-        bookNowBtn.addEventListener('click', handleBookNow);
-    }
+    // Current page tracker
+    currentPage: "",
     
-    // Set up newsletter form submission if on home page
-    const newsletterForm = document.getElementById('newsletterForm');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', handleNewsletterSubmit);
-    }
-});
-
-// Function to track and display last visit using localStorage
-function trackLastVisit() {
-    const lastVisitElement = document.getElementById('lastVisit');
-    if (!lastVisitElement) return;
+    // Current testimonial/slide index
+    currentIndex: 0,
     
-    const currentDate = new Date();
-    const currentDateString = currentDate.toLocaleDateString();
-    
-    // Get the last visit date from localStorage
-    const lastVisitDate = localStorage.getItem('lastVisitDate');
-    
-    if (lastVisitDate) {
-        // Calculate days between visits
-        const daysBetween = calculateDaysBetween(new Date(lastVisitDate), currentDate);
-        
-        if (daysBetween === 0) {
-            lastVisitElement.textContent = "Welcome back today!";
-        } else if (daysBetween === 1) {
-            lastVisitElement.textContent = "Your last visit was yesterday.";
-        } else {
-            lastVisitElement.textContent = `Your last visit was ${daysBetween} days ago.`;
+    // Initialize the application
+    init: function() {
+        // Set current page based on active navigation link
+        const activeNavLink = document.querySelector('nav a.active');
+        if (activeNavLink) {
+            this.currentPage = activeNavLink.getAttribute('href').split('.')[0];
         }
-    } else {
-        lastVisitElement.textContent = "Welcome to your first visit!";
-    }
-    
-    // Update the last visit date in localStorage
-    localStorage.setItem('lastVisitDate', currentDateString);
-}
-
-// Function to calculate days between two dates
-function calculateDaysBetween(date1, date2) {
-    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-    const diffDays = Math.round(Math.abs((date2 - date1) / oneDay));
-    return diffDays;
-}
-
-// Function to display testimonials
-function displayTestimonials() {
-    const testimonialContainer = document.getElementById('testimonialContainer');
-    if (!testimonialContainer) return;
-    
-    // Clear existing testimonials
-    testimonialContainer.innerHTML = '';
-    
-    // Create and append testimonial elements
-    testimonials.forEach((testimonial, index) => {
-        const testimonialElement = document.createElement('div');
-        testimonialElement.classList.add('testimonial');
-        testimonialElement.style.transform = `translateX(${(index - currentTestimonialIndex) * 100}%)`;
         
-        // Use template literals for content
-        testimonialElement.innerHTML = `
-            <p>${testimonial.text}</p>
-            <p class="testimonial-author">${testimonial.author}</p>
+        // Common functionality for all pages
+        this.setupCommonElements();
+        this.handleLastVisit();
+        this.setupBackToTop();
+        
+        // Page-specific initialization
+        switch (this.currentPage) {
+            case "index":
+                this.initHomePage();
+                break;
+            case "about":
+                this.initAboutPage();
+                break;
+            case "rooms":
+                this.initRoomsPage();
+                break;
+            case "contact":
+                this.initContactPage();
+                break;
+        }
+        
+        console.log(`Initialized NaranSuites script for ${this.currentPage} page`);
+    },
+    
+    // Setup common elements used across all pages
+    setupCommonElements: function() {
+        // Back to top button
+        this.elements.backToTopBtn = document.getElementById('backToTopBtn');
+        
+        // Last visit elements
+        this.elements.lastVisit = document.getElementById('lastVisit');
+        this.elements.lastVisitFooter = document.getElementById('lastVisitFooter');
+    },
+    
+    // Handle last visit tracking using localStorage
+    handleLastVisit: function() {
+        // Get current date
+        const now = new Date();
+        const currentDate = now.toLocaleDateString();
+        const currentTime = now.toLocaleTimeString();
+        
+        // Get last visit from localStorage
+        const lastVisit = localStorage.getItem('lastVisit');
+        
+        // Display last visit message if available
+        if (lastVisit) {
+            const message = `Your last visit was on ${lastVisit}`;
+            
+            if (this.elements.lastVisit) {
+                this.elements.lastVisit.textContent = message;
+            }
+            
+            if (this.elements.lastVisitFooter) {
+                this.elements.lastVisitFooter.textContent = message;
+            }
+        }
+        
+        // Update last visit in localStorage
+        localStorage.setItem('lastVisit', `${currentDate} at ${currentTime}`);
+    },
+    
+    // Setup back to top button functionality
+    setupBackToTop: function() {
+        if (!this.elements.backToTopBtn) return;
+        
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                this.elements.backToTopBtn.classList.add('visible');
+            } else {
+                this.elements.backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Scroll to top when clicked
+        this.elements.backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    },
+    
+    /* HOME PAGE Functions */
+    initHomePage: function() {
+        // Setup newsletter form
+        this.setupNewsletterForm();
+        
+        // Setup testimonials slider
+        this.setupTestimonials();
+        
+        // Set up book now button
+        const bookNowBtn = document.getElementById('bookNowBtn');
+        if (bookNowBtn) {
+            bookNowBtn.addEventListener('click', () => {
+                alert('Redirecting to booking system...');
+                // In a real implementation, this would redirect to a booking page
+                window.location.href = 'rooms.html';
+            });
+        }
+    },
+    
+    setupNewsletterForm: function() {
+        const newsletterForm = document.getElementById('newsletterForm');
+        if (!newsletterForm) return;
+        
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const receiveOffers = document.getElementById('offers').checked;
+            
+            // Store subscription in localStorage (for demonstration)
+            const subscription = {
+                name: name,
+                email: email,
+                offers: receiveOffers,
+                date: new Date().toISOString()
+            };
+            
+            // In a real implementation, this would send data to a server
+            // For now, just store in localStorage
+            localStorage.setItem('newsletterSubscription', JSON.stringify(subscription));
+            
+            // Show success message
+            const messageElement = document.getElementById('subscriptionMessage');
+            if (messageElement) {
+                messageElement.textContent = `Thank you, ${name}! Your subscription has been confirmed.`;
+                messageElement.classList.add('success-message');
+                
+                // Reset form
+                newsletterForm.reset();
+                
+                // Clear message after 5 seconds
+                setTimeout(() => {
+                    messageElement.textContent = '';
+                    messageElement.classList.remove('success-message');
+                }, 5000);
+            }
+        });
+    },
+    
+    setupTestimonials: function() {
+        const testimonialContainer = document.getElementById('testimonialContainer');
+        if (!testimonialContainer) return;
+        
+        const prevBtn = document.getElementById('prevTestimonial');
+        const nextBtn = document.getElementById('nextTestimonial');
+        
+        // Populate testimonials
+        this.displayTestimonial();
+        
+        // Set up navigation buttons
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                this.currentIndex = (this.currentIndex - 1 + this.data.testimonials.length) % this.data.testimonials.length;
+                this.displayTestimonial();
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                this.currentIndex = (this.currentIndex + 1) % this.data.testimonials.length;
+                this.displayTestimonial();
+            });
+        }
+    },
+    
+    displayTestimonial: function() {
+        const testimonialContainer = document.getElementById('testimonialContainer');
+        if (!testimonialContainer) return;
+        
+        const testimonial = this.data.testimonials[this.currentIndex];
+        const testimonialHTML = `
+            <div class="testimonial">
+                <blockquote>"${testimonial.text}"</blockquote>
+                <cite>- ${testimonial.author}</cite>
+            </div>
         `;
         
-        testimonialContainer.appendChild(testimonialElement);
-    });
-}
-
-// Function to set up testimonial navigation controls
-function setupTestimonialControls() {
-    const prevButton = document.getElementById('prevTestimonial');
-    const nextButton = document.getElementById('nextTestimonial');
+        testimonialContainer.innerHTML = testimonialHTML;
+    },
     
-    if (!prevButton || !nextButton) return;
+    /* ABOUT PAGE Functions */
+    initAboutPage: function() {
+        // Display company values
+        this.displayValues();
+    },
     
-    prevButton.addEventListener('click', () => {
-        if (currentTestimonialIndex > 0) {
-            currentTestimonialIndex--;
-            updateTestimonialPosition();
+    displayValues: function() {
+        const valuesContainer = document.getElementById('valuesContainer');
+        if (!valuesContainer) return;
+        
+        let valuesHTML = '';
+        
+        this.data.values.forEach(value => {
+            valuesHTML += `
+                <div class="value-card">
+                    <h3>${value.title}</h3>
+                    <p>${value.description}</p>
+                </div>
+            `;
+        });
+        
+        valuesContainer.innerHTML = valuesHTML;
+    },
+    
+    /* ROOMS PAGE Functions */
+    initRoomsPage: function() {
+        // Display rooms
+        this.displayRooms();
+        
+        // Setup room filter functionality
+        this.setupRoomFilter();
+        
+        // Setup booking form
+        this.setupBookingForm();
+    },
+    
+    displayRooms: function(filter = {}) {
+        const roomsContainer = document.getElementById('roomsContainer');
+        if (!roomsContainer) return;
+        
+        // Filter rooms based on criteria
+        let filteredRooms = [...this.data.rooms];
+        
+        if (filter.type && filter.type !== 'all') {
+            filteredRooms = filteredRooms.filter(room => room.type === filter.type);
         }
-    });
-    
-    nextButton.addEventListener('click', () => {
-        if (currentTestimonialIndex < testimonials.length - 1) {
-            currentTestimonialIndex++;
-            updateTestimonialPosition();
+        
+        if (filter.guests && filter.guests !== 'all') {
+            const guestsNum = parseInt(filter.guests);
+            filteredRooms = filteredRooms.filter(room => room.capacity >= guestsNum);
         }
-    });
-}
-
-// Function to update testimonial positions
-function updateTestimonialPosition() {
-    const testimonialElements = document.querySelectorAll('.testimonial');
-    
-    testimonialElements.forEach((testimonial, index) => {
-        testimonial.style.transform = `translateX(${(index - currentTestimonialIndex) * 100}%)`;
-    });
-}
-
-// Function to handle Book Now button click
-function handleBookNow() {
-    // Get user preferences from localStorage or set defaults
-    const userPreferences = JSON.parse(localStorage.getItem('userBookingPreferences')) || {
-        roomType: 'standard',
-        guests: 2,
-        amenities: ['wifi', 'breakfast']
-    };
-    
-    // Show a modal or redirect based on user preferences
-    const preferredRoomType = userPreferences.roomType;
-    
-    if (preferredRoomType) {
-        // Use conditional branching for different room types
-        if (preferredRoomType === 'suite') {
-            alert(`Welcome back! Would you like to book our luxury suite again for ${userPreferences.guests} guests?`);
-        } else if (preferredRoomType === 'deluxe') {
-            alert(`Welcome back! Would you like to book our deluxe room again for ${userPreferences.guests} guests?`);
+        
+        // Generate room cards HTML
+        let roomsHTML = '';
+        
+        if (filteredRooms.length === 0) {
+            roomsHTML = '<p class="no-results">No rooms match your criteria. Please try different filters.</p>';
         } else {
-            alert(`Welcome back! Would you like to book our standard room again for ${userPreferences.guests} guests?`);
+            filteredRooms.forEach(room => {
+                const featuresHTML = room.features.map(feature => `<li>${feature}</li>`).join('');
+                
+                roomsHTML += `
+                    <div class="room-card" data-room-type="${room.type}">
+                        <div class="room-image">
+                            <img src="${room.image}" alt="${room.name}" loading="lazy">
+                        </div>
+                        <div class="room-details">
+                            <h3>${room.name}</h3>
+                            <p class="room-price">$${room.price} per night</p>
+                            <p>${room.description}</p>
+                            <h4>Features:</h4>
+                            <ul class="room-features">
+                                ${featuresHTML}
+                            </ul>
+                            <button class="room-select-btn" data-room-type="${room.type}">Select Room</button>
+                        </div>
+                    </div>
+                `;
+            });
         }
-    } else {
-        // Redirect to rooms page if no preferences found
-        window.location.href = 'rooms.html';
+        
+        roomsContainer.innerHTML = roomsHTML;
+        
+        // Add event listeners to the select buttons
+        const selectButtons = document.querySelectorAll('.room-select-btn');
+        selectButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const roomType = e.target.getAttribute('data-room-type');
+                // Scroll to booking form
+                document.getElementById('room-booking').scrollIntoView({ behavior: 'smooth' });
+                // Set the room type in the form
+                document.getElementById('bookingRoomType').value = roomType;
+            });
+        });
+    },
+    
+    setupRoomFilter: function() {
+        const filterBtn = document.getElementById('filterRoomsBtn');
+        if (!filterBtn) return;
+        
+        filterBtn.addEventListener('click', () => {
+            const roomType = document.getElementById('roomType').value;
+            const guests = document.getElementById('guests').value;
+            
+            this.displayRooms({ type: roomType, guests: guests });
+        });
+    },
+    
+    setupBookingForm: function() {
+        const bookingForm = document.getElementById('bookingForm');
+        if (!bookingForm) return;
+        
+        // Set minimum dates for the date inputs
+        const checkinInput = document.getElementById('checkin');
+        const checkoutInput = document.getElementById('checkout');
+        
+        if (checkinInput && checkoutInput) {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            const formatDate = (date) => {
+                return date.toISOString().split('T')[0];
+            };
+            
+            checkinInput.min = formatDate(today);
+            checkoutInput.min = formatDate(tomorrow);
+            
+            // Update checkout min date when checkin changes
+            checkinInput.addEventListener('change', () => {
+                const newMin = new Date(checkinInput.value);
+                newMin.setDate(newMin.getDate() + 1);
+                checkoutInput.min = formatDate(newMin);
+                
+                // If current checkout date is before new minimum, update it
+                if (new Date(checkoutInput.value) <= new Date(checkinInput.value)) {
+                    checkoutInput.value = formatDate(newMin);
+                }
+            });
+        }
+        
+        // Handle form submission
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('bookingName').value;
+            const email = document.getElementById('bookingEmail').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const roomType = document.getElementById('bookingRoomType').value;
+            const guests = document.getElementById('bookingGuests').value;
+            const requests = document.getElementById('specialRequests').value;
+            
+            // Store booking in localStorage (for demonstration)
+            const booking = {
+                name,
+                email,
+                checkin,
+                checkout,
+                roomType,
+                guests,
+                requests,
+                bookingDate: new Date().toISOString()
+            };
+            
+            // In a real implementation, this would send data to a server
+            // For now, just store in localStorage
+            let bookings = JSON.parse(localStorage.getItem('roomBookings') || '[]');
+            bookings.push(booking);
+            localStorage.setItem('roomBookings', JSON.stringify(bookings));
+            
+            // Show success message
+            const messageElement = document.getElementById('bookingMessage');
+            if (messageElement) {
+                messageElement.textContent = `Thank you, ${name}! Your booking request has been submitted. We will contact you at ${email} to confirm your reservation.`;
+                messageElement.classList.add('success-message');
+                
+                // Reset form
+                bookingForm.reset();
+                
+                // Clear message after 8 seconds
+                setTimeout(() => {
+                    messageElement.textContent = '';
+                    messageElement.classList.remove('success-message');
+                }, 8000);
+            }
+        });
+    },
+    
+    /* CONTACT PAGE Functions */
+    initContactPage: function() {
+        // Display FAQs
+        this.displayFAQs();
+        
+        // Display transportation options
+        this.displayTransportation();
+        
+        // Setup contact form
+        this.setupContactForm();
+    },
+    
+    displayFAQs: function() {
+        const faqContainer = document.getElementById('faqContainer');
+        if (!faqContainer) return;
+        
+        let faqsHTML = '';
+        
+        this.data.faqs.forEach((faq, index) => {
+            faqsHTML += `
+                <div class="faq-item">
+                    <div class="faq-question" data-faq-index="${index}">
+                        <h3>${faq.question}</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer" id="faq-answer-${index}">
+                        <p>${faq.answer}</p>
+                    </div>
+                </div>
+            `;
+        });
+        
+        faqContainer.innerHTML = faqsHTML;
+        
+        // Add click event listeners to toggle FAQ answers
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const index = question.getAttribute('data-faq-index');
+                const answer = document.getElementById(`faq-answer-${index}`);
+                const toggle = question.querySelector('.faq-toggle');
+                
+                // Toggle visibility
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    toggle.textContent = '+';
+                } else {
+                    answer.style.display = 'block';
+                    toggle.textContent = '-';
+                }
+            });
+        });
+    },
+    
+    displayTransportation: function() {
+        const transportationOptions = document.getElementById('transportationOptions');
+        if (!transportationOptions) return;
+        
+        let optionsHTML = '<h4>Transportation Options</h4>';
+        
+        this.data.transportation.forEach(option => {
+            optionsHTML += `
+                <div class="transportation-item">
+                    <h5>${option.name}</h5>
+                    <p>${option.description}</p>
+                    ${option.schedule ? `<p><strong>Schedule:</strong> ${option.schedule}</p>` : ''}
+                    ${option.contact ? `<p><strong>Contact:</strong> ${option.contact}</p>` : ''}
+                </div>
+            `;
+        });
+        
+        transportationOptions.innerHTML = optionsHTML;
+    },
+    
+    setupContactForm: function() {
+        const messageForm = document.getElementById('messageForm');
+        if (!messageForm) return;
+        
+        messageForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const phone = document.getElementById('contactPhone').value;
+            const subject = document.getElementById('contactSubject').value;
+            const message = document.getElementById('contactMessage').value;
+            
+            // Validate phone number format if provided
+            if (phone && !this.validatePhoneNumber(phone)) {
+                const messageStatus = document.getElementById('messageStatus');
+                messageStatus.textContent = 'Please enter a valid phone number.';
+                messageStatus.classList.add('error-message');
+                return;
+            }
+            
+            // Create contact message object
+            const contactMessage = {
+                name,
+                email,
+                phone,
+                subject,
+                message,
+                date: new Date().toISOString()
+            };
+            
+            // In a real implementation, this would send data to a server
+            // For now, just store in localStorage
+            let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+            messages.push(contactMessage);
+            localStorage.setItem('contactMessages', JSON.stringify(messages));
+            
+            // Show success message
+            const messageStatus = document.getElementById('messageStatus');
+            if (messageStatus) {
+                messageStatus.textContent = `Thank you for your message, ${name}! We will get back to you soon.`;
+                messageStatus.classList.add('success-message');
+                messageStatus.classList.remove('error-message');
+                
+                // Reset form
+                messageForm.reset();
+                
+                // Clear message after 5 seconds
+                setTimeout(() => {
+                    messageStatus.textContent = '';
+                    messageStatus.classList.remove('success-message');
+                }, 5000);
+            }
+        });
+    },
+    
+    validatePhoneNumber: function(phone) {
+        // Basic phone number validation
+        // Accepts formats like (123) 456-7890, 123-456-7890, 123.456.7890, 1234567890
+        const phoneRegex = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+        return phoneRegex.test(phone);
     }
-}
+};
 
-// Function to handle newsletter form submission
-function handleNewsletterSubmit(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const email = form.email.value;
-    const name = form.name.value;
-    const offersChecked = form.offers.checked;
-    
-    // Create subscriber object
-    const subscriber = {
-        email: email,
-        name: name,
-        wantsOffers: offersChecked,
-        dateSubscribed: new Date().toISOString()
-    };
-    
-    // Save to localStorage
-    // Get existing subscribers or initialize empty array
-    const subscribers = JSON.parse(localStorage.getItem('subscribers')) || [];
-    subscribers.
+// Initialize when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    NaranSuites.init();
+});

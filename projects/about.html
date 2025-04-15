@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn about Naran Suites and Hotel International Limited, our history, mission, and commitment to luxury.">
     <meta name="author" content="Nicholaskigozi">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/naransuite.css">
-    <script src="scripts/Naransuite.js"></script>
-    <script src="scripts/about.js"></script>
+    <script src="scripts/naransuite.js" defer></script>
+    <script src="scripts/about.js" defer></script>
     <title>About Us - Naran Suites</title>
-
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <img src="images/logo.png" alt="Naran Suites Logo">
+            <img src="images/naran_suites logo.png" alt="Naran Suites Logo">
         </div>
         <h1>Naran Suites and Hotel International Limited</h1>
         <nav>
@@ -72,7 +74,7 @@
                         <p>Chief Executive Officer</p>
                     </div>
                     <div class="team-member">
-                        <img src="Images/Akanji_varsan.jpg" alt="COO Portrait" loading="lazy">
+                        <img src="images/Akanji_varsan.jpg" alt="COO Portrait" loading="lazy">
                         <h3>Robert Chen</h3>
                         <p>Chief Operating Officer</p>
                     </div>
@@ -88,17 +90,17 @@
         <section id="links">
             <h2>Partner Organizations</h2>
             <div class="links-container">
-                <a href="https://www.tourism.org" class="external-link" target="_blank">Tourism Board</a>
-                <a href="https://www.sustainabletravel.org" class="external-link" target="_blank">Sustainable Travel</a>
-                <a href="https://www.hospitalityschool.edu" class="external-link" target="_blank">Hospitality School</a>
-                <a href="https://www.hotelassociation.org" class="external-link" target="_blank">Hotel Association</a>
+                <a href="https://www.tourism.org" class="external-link" target="_blank" rel="noopener noreferrer">Tourism Board</a>
+                <a href="https://www.sustainabletravel.org" class="external-link" target="_blank" rel="noopener noreferrer">Sustainable Travel</a>
+                <a href="https://www.hospitalityschool.edu" class="external-link" target="_blank" rel="noopener noreferrer">Hospitality School</a>
+                <a href="https://www.hotelassociation.org" class="external-link" target="_blank" rel="noopener noreferrer">Hotel Association</a>
             </div>
         </section>
 
         <section id="testimonials">
             <div class="container">
                 <h2>What Our Guests Say</h2>
-                <div class="testimonials-container">
+                <div class="testimonials-container" style="margin-bottom: 3rem;">
                     <div class="testimonial">
                         <p>"Naran Suites exceeded all my expectations. The service was impeccable, and the rooms were luxurious!"</p>
                         <p class="author">- Jane Doe</p>
@@ -129,31 +131,181 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="rooms.html">Rooms & Suites</a></li>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Follow Us</h3>
                 <div class="social-links">
-                    <a href="#" class="social-icon">
+                    <a href="https://www.facebook.com" class="social-icon" target="_blank" rel="noopener noreferrer">
                         <img src="images/facebook.jpg" alt="Facebook" width="32" height="32">
                     </a>
-                    <a href="#" class="social-icon">
+                    <a href="https://www.instagram.com" class="social-icon" target="_blank" rel="noopener noreferrer">
                         <img src="images/instagram.jpg" alt="Instagram" width="32" height="32">
                     </a>
-                    <a href="#" class="social-icon">
+                    <a href="https://www.twitter.com" class="social-icon" target="_blank" rel="noopener noreferrer">
                         <img src="images/twitter.png" alt="Twitter" width="32" height="32">
                     </a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Naran Suites. All rights reserved.</p>
+            <p>&copy; 2025 Naran Suites. All rights reserved.</p>
             <p id="lastVisit"></p>
         </div>
     </footer>
     
+    <button id="backToTopBtn" class="back-to-top" aria-label="Back to top">↑</button>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience luxury accommodation at Naran Suites and Hotel International Limited. Book your stay today.">
+    <meta name="author" content="Nicholaskigozi">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/naransuite.css">
+    <script src="scripts/naransuite.js" defer></script>
+    <script src="scripts/animations.js" defer></script>
+    <title>Naran Suites - Luxury Accommodation</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/naran_suites logo.png" alt="Naran Suites Logo">
+        </div>
+        <h1>Naran Suites and Hotel International Limited</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Welcome to Luxury Redefined</h2>
+                <p>Experience excellence in hospitality at Naran Suites.</p>
+                <button id="bookNowBtn" class="cta-button">Book Now</button>
+            </div>
+        </section>
+
+        <section id="features">
+            <h2>Why Choose Naran Suites?</h2>
+            <div class="features-container">
+                <article class="feature-card">
+                    <img src="images/Luxury_accomodations.jpg" alt="Luxury Accommodations" loading="lazy">
+                    <h3>Luxury Accommodations</h3>
+                    <p>Our rooms are designed for ultimate comfort and luxury.</p>
+                </article>
+                <article class="feature-card">
+                    <img src="images/Fire_dinning.jpg" alt="Fine Dining" loading="lazy">
+                    <h3>Fine Dining</h3>
+                    <p>Exquisite cuisine prepared by world-class chefs.</p>
+                </article>
+                <article class="feature-card">
+                    <img src="images/premium_spa.jpg" alt="Premium Spa" loading="lazy">
+                    <h3>Premium Spa</h3>
+                    <p>Relax and rejuvenate with our premium spa services.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials-section">
+            <div class="welcome-message">
+                <h1>Welcome to Naran Suites</h1>
+                <p>Experience luxury redefined with breathtaking views and unparalleled service. Your dream getaway awaits.</p>
+                <div id="lastVisit" class="last-visit"></div>
+            </div>
+            
+            <h2>What Our Guests Say</h2>
+            <div class="testimonial-container" id="testimonialContainer">
+                <!-- Testimonials will be loaded with JavaScript -->
+            </div>
+            <div class="testimonial-controls">
+                <button id="prevTestimonial" class="control-btn">Previous</button>
+                <button id="nextTestimonial" class="control-btn">Next</button>
+            </div>
+        </section>
+
+        <section id="links">
+            <h2>Useful Links</h2>
+            <div class="links-container">
+                <a href="https://www.tripadvisor.com" class="external-link" target="_blank" rel="noopener noreferrer">TripAdvisor</a>
+                <a href="https://www.booking.com" class="external-link" target="_blank" rel="noopener noreferrer">Booking.com</a>
+                <a href="https://www.expedia.com" class="external-link" target="_blank" rel="noopener noreferrer">Expedia</a>
+                <a href="https://www.hotels.com" class="external-link" target="_blank" rel="noopener noreferrer">Hotels.com</a>
+            </div>
+        </section>
+
+        <section id="newsletter">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for exclusive offers and updates.</p>
+            <form id="newsletterForm" class="newsletter-form">
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-checkbox">
+                    <input type="checkbox" id="offers" name="offers" checked>
+                    <label for="offers">Receive special offers</label>
+                </div>
+                <button type="submit" class="submit-btn">Subscribe</button>
+            </form>
+            <div id="subscriptionMessage"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>123 Luxury Avenue</p>
+                <p>Metropolis, MT 12345</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: info@naransuites.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="rooms.html">Rooms & Suites</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <img src="images/facebook.jpg" alt="Facebook" width="32" height="32">
+                    </a>
+                    <a href="https://www.instagram.com" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <img src="images/instagram.jpg" alt="Instagram" width="32" height="32">
+                    </a>
+                    <a href="https://www.twitter.com" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <img src="images/twitter.png" alt="Twitter" width="32" height="32">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Naran Suites. All rights reserved.</p>
+            <p id="lastVisitFooter"></p>
+        </div>
+    </footer>
+    
+    <button id="backToTopBtn" class="back-to-top" aria-label="Back to top">↑</button>
 </body>
 </html>
