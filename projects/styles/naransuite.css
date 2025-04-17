@@ -58,7 +58,7 @@ h1 {
 
 h2 {
     font-size: 2rem;
-    color: var(--primary-color);
+    color: #0c1e3a; /* Slightly darker shade for better contrast */
     text-align: center;
     position: relative;
     padding-bottom: 10px;
@@ -95,6 +95,7 @@ h3:after {
 
 p {
     margin-bottom: 1rem;
+    color: #444; /* Darker gray for improved readability */
 }
 
 /* Accessibility */
@@ -179,13 +180,24 @@ nav a:hover, nav a.active {
 }
 
 a.active {
-    color: #000000; /* Black for maximum contrast */
+    color: #0d2b4e; /* Adjusted to primary color for better contrast */
     font-weight: bold;
-    border-bottom: 2px solid #000000; /* Black border for better visibility */
+    border-bottom: 2px solid #0d2b4e; /* Match primary color for consistency */
 }
 
 a.active:hover {
-    color: #333333; /* Slightly darker gray for better hover contrast */
+    color: #0a1f3a; /* Slightly darker shade for hover state */
+}
+
+/* Adjusted link colors for better contrast */
+a {
+    color: #0d2b4e; /* Primary color for better contrast */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0a1f3a; /* Slightly darker shade for hover state */
+    text-decoration: underline; /* Added underline for better visibility */
 }
 
 /* Hero Sections */
@@ -246,43 +258,29 @@ a.active:hover {
 }
 
 /* Buttons */
-.cta-button, .submit-btn {
+button, .cta-button, .submit-btn, .filter-btn, .control-btn {
     display: inline-block;
-    background-color: #3e2a04; /* Darker brown for better contrast */
-    color: #ffffff; /* White text for better readability */
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 4px;
-    text-decoration: none;
     font-weight: 700;
-    transition: var(--transition);
-    cursor: pointer;
     font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-.cta-button:hover, .submit-btn:hover {
-    background-color: #2c1e03; /* Even darker brown for hover state */
+button:hover, .cta-button:hover, .submit-btn:hover, .filter-btn:hover, .control-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.filter-btn {
-    background-color: #8b6508; /* Darker gold for better contrast */
-    color: #ffffff; /* White text for better readability */
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: var(--transition);
-    cursor: pointer;
-    font-size: 1rem;
+.cta-button, .submit-btn, .filter-btn {
+    background-color: #004080; /* Darker blue for better contrast */
+    color: #ffffff; /* White text for readability */
 }
 
-.filter-btn:hover {
-    background-color: #704c06; /* Even darker gold for hover state */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.cta-button:hover, .submit-btn:hover, .filter-btn:hover {
+    background-color: #003366; /* Even darker blue for hover state */
 }
 
 .control-btn {
@@ -327,11 +325,13 @@ a.active:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid #cccccc; /* Light gray border for better contrast */
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: #999999; /* Darker gray border on hover */
 }
 
 .feature-card img {
@@ -472,8 +472,8 @@ section {
     font-weight: 600;
 }
 
-.external-link:hover {
-    background-color: #0f3b6d; /* Slightly lighter for hover */
+a:hover, .external-link:hover {
+    color: var(--secondary-color);
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
@@ -494,21 +494,17 @@ section {
     font-weight: 600;
 }
 
-.form-group input, 
-.form-group select, 
-.form-group textarea {
+input, select, textarea {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
-    transition: var(--transition);
     font-family: 'Raleway', sans-serif;
+    transition: var(--transition);
 }
 
-.form-group input:focus, 
-.form-group select:focus, 
-.form-group textarea:focus {
+input:focus, select:focus, textarea:focus {
     border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 0 2px rgba(13, 43, 78, 0.2);
@@ -560,7 +556,7 @@ section {
 
 .team-member:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .team-member img {
@@ -600,17 +596,13 @@ section {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
     transition: var(--transition);
+    border: 1px solid #cccccc; /* Light gray border for better contrast */
 }
 
 .room-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.room-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: #999999; /* Darker gray border on hover */
 }
 
 .room-details {
@@ -670,11 +662,13 @@ section {
     padding: 1.5rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
+    border: 1px solid #cccccc; /* Light gray border for better contrast */
 }
 
 .contact-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: #999999; /* Darker gray border on hover */
 }
 
 .contact-card h3 {
@@ -686,50 +680,58 @@ section {
 .location-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 30px;
+    margin-top: 20px;
 }
 
 .map-container {
-    flex: 1 1 400px;
+    flex: 1;
+    min-width: 300px;
 }
 
-.map-container img {
+#hotel-map {
     width: 100%;
+    height: 300px;
     border-radius: 8px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .map-caption {
+    font-size: 0.9rem;
+    color: #555;
     text-align: center;
-    margin-top: 0.5rem;
-    font-style: italic;
-    color: #666;
+    margin-top: 8px;
 }
 
 .location-details {
-    flex: 1 1 300px;
+    flex: 1;
+    min-width: 300px;
 }
 
 .direction-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .direction-item h4 {
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
+    margin-bottom: 5px;
+    color: #0f2847;
 }
 
-.transportation-item {
-    background-color: #f9f9f9;
-    padding: 1rem;
-    border-radius: 5px;
-    margin-bottom: 1rem;
+.transportation-options {
+    margin-top: 20px;
 }
 
-.transportation-item h5 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
+.transport-option {
+    margin-bottom: 15px;
+}
+
+.transport-option h5 {
+    margin-bottom: 5px;
+    color: #0f2847;
+}
+
+.transport-option p {
+    margin: 0 0 5px 0;
 }
 
 /* FAQ Section */
@@ -754,11 +756,6 @@ section {
 
 .faq-question h3:after {
     display: none;
-}
-
-.faq-toggle {
-    font-size: 1.5rem;
-    color: var(--primary-color);
 }
 
 .faq-answer {
@@ -883,6 +880,12 @@ footer {
     color: #f8f8f8; /* Slightly lighter text for hover */
 }
 
+/* Unified card hover effects */
+.card:hover, .feature-card:hover, .room-card:hover, .contact-card:hover, .team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
 /* Responsive Styles */
 @media (min-width: 768px) {
     .room-card {
@@ -942,10 +945,9 @@ footer {
         margin: 0.3rem 0.7rem;
     }
     
-    .feature-card {
-        max-width: 100%;
-        width: calc(50% - 1rem);
-        min-height: 300px;
+    .card, .feature-card, .room-card, .contact-card, .team-member {
+        width: 100%;
+        margin-bottom: 1.5rem;
     }
     
     .links-container {
@@ -1021,72 +1023,3 @@ footer {
         padding: 0.7rem;
     }
 }
-
-
- .location-container {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 30px;
-                    margin-top: 20px;
-                }
-                
-                .map-container {
-                    flex: 1;
-                    min-width: 300px;
-                }
-                
-                #hotel-map {
-                    width: 100%;
-                    height: 300px;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                }
-                
-                .map-caption {
-                    font-size: 0.9rem;
-                    color: #555;
-                    text-align: center;
-                    margin-top: 8px;
-                }
-                
-                .location-details {
-                    flex: 1;
-                    min-width: 300px;
-                }
-                
-                .direction-item {
-                    margin-bottom: 20px;
-                }
-                
-                .direction-item h4 {
-                    margin-bottom: 5px;
-                    color: #0f2847;
-                }
-                
-                .transportation-options {
-                    margin-top: 20px;
-                }
-                
-                .transport-option {
-                    margin-bottom: 15px;
-                }
-                
-                .transport-option h5 {
-                    margin-bottom: 5px;
-                    color: #0f2847;
-                }
-                
-                .transport-option p {
-                    margin: 0 0 5px 0;
-                }
-                
-                /* Responsive adjustments */
-                @media (max-width: 768px) {
-                    .location-container {
-                        flex-direction: column;
-                    }
-                    
-                    .map-container, .location-details {
-                        width: 100%;
-                    }
-                }

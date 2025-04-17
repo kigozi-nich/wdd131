@@ -218,6 +218,20 @@ const NaranSuites = {
         });
     },
     
+    // Helper function for resetting forms and clearing messages
+    resetFormAndMessage: function(form, messageElement, successMessage, timeout = 5000) {
+        if (messageElement) {
+            messageElement.textContent = successMessage;
+            messageElement.classList.add('success-message');
+            form.reset();
+
+            setTimeout(() => {
+                messageElement.textContent = '';
+                messageElement.classList.remove('success-message');
+            }, timeout);
+        }
+    },
+    
     /* HOME PAGE Functions */
     initHomePage: function() {
         // Setup newsletter form
@@ -240,42 +254,23 @@ const NaranSuites = {
     setupNewsletterForm: function() {
         const newsletterForm = document.getElementById('newsletterForm');
         if (!newsletterForm) return;
-        
+
         newsletterForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Get form values
+
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const receiveOffers = document.getElementById('offers').checked;
-            
-            // Store subscription in localStorage (for demonstration)
-            const subscription = {
-                name: name,
-                email: email,
-                offers: receiveOffers,
-                date: new Date().toISOString()
-            };
-            
-            // In a real implementation, this would send data to a server
-            // For now, just store in localStorage
-            localStorage.setItem('newsletterSubscription', JSON.stringify(subscription));
-            
-            // Show success message
-            const messageElement = document.getElementById('subscriptionMessage');
-            if (messageElement) {
-                messageElement.textContent = `Thank you, ${name}! Your subscription has been confirmed.`;
-                messageElement.classList.add('success-message');
-                
-                // Reset form
-                newsletterForm.reset();
-                
-                // Clear message after 5 seconds
-                setTimeout(() => {
-                    messageElement.textContent = '';
-                    messageElement.classList.remove('success-message');
-                }, 5000);
+
+            const subscription = { name, email, offers: receiveOffers, date: new Date().toISOString() };
+            try {
+                localStorage.setItem('newsletterSubscription', JSON.stringify(subscription));
+            } catch (error) {
+                console.error('Error saving to localStorage:', error);
             }
+
+            const messageElement = document.getElementById('subscriptionMessage');
+            this.resetFormAndMessage(newsletterForm, messageElement, `Thank you, ${name}! Your subscription has been confirmed.`);
         });
     },
     
@@ -486,27 +481,17 @@ const NaranSuites = {
                 bookingDate: new Date().toISOString()
             };
             
-            // In a real implementation, this would send data to a server
-            // For now, just store in localStorage
-            let bookings = JSON.parse(localStorage.getItem('roomBookings') || '[]');
-            bookings.push(booking);
-            localStorage.setItem('roomBookings', JSON.stringify(bookings));
+            try {
+                let bookings = JSON.parse(localStorage.getItem('roomBookings') || '[]');
+                bookings.push(booking);
+                localStorage.setItem('roomBookings', JSON.stringify(bookings));
+            } catch (error) {
+                console.error('Error saving to localStorage:', error);
+            }
             
             // Show success message
             const messageElement = document.getElementById('bookingMessage');
-            if (messageElement) {
-                messageElement.textContent = `Thank you, ${name}! Your booking request has been submitted. We will contact you at ${email} to confirm your reservation.`;
-                messageElement.classList.add('success-message');
-                
-                // Reset form
-                bookingForm.reset();
-                
-                // Clear message after 8 seconds
-                setTimeout(() => {
-                    messageElement.textContent = '';
-                    messageElement.classList.remove('success-message');
-                }, 8000);
-            }
+            this.resetFormAndMessage(bookingForm, messageElement, `Thank you, ${name}! Your booking request has been submitted. We will contact you at ${email} to confirm your reservation.`, 8000);
         });
     },
     
@@ -587,57 +572,34 @@ const NaranSuites = {
     setupContactForm: function() {
         const messageForm = document.getElementById('messageForm');
         if (!messageForm) return;
-        
+
         messageForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Get form values
+
             const name = document.getElementById('contactName').value;
             const email = document.getElementById('contactEmail').value;
             const phone = document.getElementById('contactPhone').value;
             const subject = document.getElementById('contactSubject').value;
             const message = document.getElementById('contactMessage').value;
-            
-            // Validate phone number format if provided
+
             if (phone && !this.validatePhoneNumber(phone)) {
                 const messageStatus = document.getElementById('messageStatus');
                 messageStatus.textContent = 'Please enter a valid phone number.';
                 messageStatus.classList.add('error-message');
                 return;
             }
-            
-            // Create contact message object
-            const contactMessage = {
-                name,
-                email,
-                phone,
-                subject,
-                message,
-                date: new Date().toISOString()
-            };
-            
-            // In a real implementation, this would send data to a server
-            // For now, just store in localStorage
-            let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
-            messages.push(contactMessage);
-            localStorage.setItem('contactMessages', JSON.stringify(messages));
-            
-            // Show success message
-            const messageStatus = document.getElementById('messageStatus');
-            if (messageStatus) {
-                messageStatus.textContent = `Thank you for your message, ${name}! We will get back to you soon.`;
-                messageStatus.classList.add('success-message');
-                messageStatus.classList.remove('error-message');
-                
-                // Reset form
-                messageForm.reset();
-                
-                // Clear message after 5 seconds
-                setTimeout(() => {
-                    messageStatus.textContent = '';
-                    messageStatus.classList.remove('success-message');
-                }, 5000);
+
+            const contactMessage = { name, email, phone, subject, message, date: new Date().toISOString() };
+            try {
+                let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+                messages.push(contactMessage);
+                localStorage.setItem('contactMessages', JSON.stringify(messages));
+            } catch (error) {
+                console.error('Error saving to localStorage:', error);
             }
+
+            const messageStatus = document.getElementById('messageStatus');
+            this.resetFormAndMessage(messageForm, messageStatus, `Thank you for your message, ${name}! We will get back to you soon.`);
         });
     },
     
