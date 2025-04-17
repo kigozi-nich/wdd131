@@ -111,18 +111,18 @@ p {
 
 /* Message Styles */
 .success-message {
-    color: var(--success-color);
-    background-color: rgba(46, 204, 113, 0.1);
-    border: 1px solid var(--success-color);
+    color: #1e7e34; /* Darker green for better contrast */
+    background-color: rgba(30, 126, 52, 0.1); /* Adjusted background */
+    border: 1px solid #1e7e34; /* Darker border for better visibility */
     padding: 10px;
     border-radius: 4px;
     margin: 10px 0;
 }
 
 .error-message {
-    color: var(--error-color);
-    background-color: rgba(231, 76, 60, 0.1);
-    border: 1px solid var(--error-color);
+    color: #c82333; /* Darker red for better contrast */
+    background-color: rgba(200, 35, 51, 0.1); /* Adjusted background */
+    border: 1px solid #c82333; /* Darker border for better visibility */
     padding: 10px;
     border-radius: 4px;
     margin: 10px 0;
